@@ -10,7 +10,10 @@ Homepage: https://github.com/anthonyharrison/lib4sbom
 
 Package: python3-lib4sbom
 Architecture: any
-Depends: ${python3:Depends}
+Depends:
+ ${misc:Depends}, 
+ ${python3:Depends},
+ python3
 Description: C library for Software Bill of Materials processing
  This library provides tools for creating, reading, and validating
  Software Bill of Materials (SBOM) documents in multiple formats.
