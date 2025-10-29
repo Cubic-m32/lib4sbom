@@ -1,6 +1,6 @@
 lib4sbom (0.8.8-1) sid; urgency=medium
 
-  * Initial release (Closes: #1119641)
+  * Initial release (Closes: #1119648)
   * Imported upstream version 0.8.8
   * Built for internal use and preparation for Debian contribution
   * No changes to upstream code
