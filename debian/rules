@@ -3,20 +3,21 @@
 export PYBUILD_NAME=lib4sbom
 export PYBUILD_DESTDIR=$(CURDIR)/debian/python3-lib4sbom
 export PYBUILD_INSTALL_ARGS=--install-lib=/usr/lib/python3/dist-packages
+export PYBUILD_TEST_PYTEST=1
+export TESTS_TO_EXCLUDE=not test_spdx_parser and \
+not test_spdx_generator and \
+not test_get_type and \
+not test_get_files and \
+not test_get_packages and \
+not test_get_relationships and \
+not test_output and \
+not test_generator and \
+not test_file and \
+not test_parse and \
+not test_parse_cyclonedx_json and \
+not test_cyclonedx_generator and \
+not test_package
+export PYBUILD_TEST_ARGS=test -k "${TESTS_TO_EXCLUDE}"
 
 %:
 	dh $@ --buildsystem=pybuild
-
-override_dh_auto_test:
-	python3 -m pytest test/test_sbom.py test/test_relationship.py test/test_document.py
-
-override_dh_auto_clean:
-	dh_auto_clean
-	find . -name "__pycache__" -type d -exec rm -r {} +
-
-override_dh_auto_install:
-	dh_auto_install --buildsystem=pybuild
-	find debian/python3-lib4sbom -type d -name "__pycache__" -exec rm -r {} +
-	find debian/python3-lib4sbom -type d -name "test" -exec rm -r {} +
-	find debian/python3-lib4sbom -type d -name "examples" -exec rm -r {} +
-	find . -type f -name 'json.html' -o -name 'php-3.0.html' -o -name 'php-3.01.html' -exec rm -v {} +
