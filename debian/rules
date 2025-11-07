@@ -18,6 +18,7 @@ not test_parse_cyclonedx_json and \
 not test_cyclonedx_generator and \
 not test_package
 export PYBUILD_TEST_ARGS=test -k "${TESTS_TO_EXCLUDE}"
+export DH_ALWAYS_EXCLUDE=test
 
 %:
 	dh $@ --buildsystem=pybuild
