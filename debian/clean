@@ -1,2 +1,5 @@
 examples/
 tools/
+lib4sbom/license_data/text/json.html
+lib4sbom/license_data/text/php-3.0.html
+lib4sbom/license_data/text/php-3.01.html
