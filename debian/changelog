@@ -1,4 +1,4 @@
-lib4sbom (0.8.8+dfsg-1) UNRELEASED; urgency=medium
+lib4sbom (0.8.8+dfsg-1) unstable; urgency=medium
 
   * Initial release (Closes: #1119648)
   * Imported upstream version 0.8.8
